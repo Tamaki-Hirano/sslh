@@ -77,6 +77,8 @@ namespace ai_server::game::action{
 #include "ai_server/model/motion/walk_forward.h"
 #include "ai_server/model/motion/turn_left.h"
 #include "ai_server/model/motion/turn_right.h"
+
+#include <iostream> //22,6,29追記
 namespace ai_server::game::action {
 clear::clear(context& ctx, unsigned int id) : base(ctx, id) {}
 bool clear::finished() const {
