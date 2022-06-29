@@ -1,0 +1,32 @@
+Sgd:
+  float: [float]
+SgdW:
+  float: [float]
+Momentum:
+  float: [float]
+Lars:
+  float: [float]
+Adadelta:
+  float: [float]
+Adagrad:
+  float: [float]
+AdaBelief:
+  float: [float]
+Adam:
+  float: [float]
+AdamW:
+  float: [float]
+AdaBound:
+  float: [float]
+Adamax:
+  float: [float]
+Nesterov:
+  float: [float]
+RMSprop:
+  float: [float]
+RMSpropGraves:
+  float: [float]
+AMSGRAD:
+  float: [float]
+AMSBound:
+  float: [float]

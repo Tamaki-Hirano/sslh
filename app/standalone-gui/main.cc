@@ -57,6 +57,8 @@
 #include "ai_server/util/thread.h"
 #include "ai_server/util/time.h"
 
+#include "ai_server/game/action/clear.h"   // wm20220621 
+
 using namespace std::chrono_literals;
 using namespace std::string_literals;
 
@@ -92,7 +94,7 @@ static constexpr auto lost_duration = 1s; // ロスト判定するまでの時�
 
 // Visionの設定
 static constexpr char vision_address[] = "224.5.23.2";
-static constexpr short vision_port     = 10006;
+static constexpr short vision_port     = 10021;
 static constexpr int num_cameras       = 8;
 
 // Refboxの設定
@@ -104,7 +106,7 @@ static constexpr char robot_address[] = "224.5.23.2";
 static constexpr short robot_port     = 10004;
 
 // Radioの設定
-static constexpr bool is_grsim            = false;
+static constexpr bool is_grsim            = true;
 static constexpr bool use_udp             = true;
 static constexpr char xbee_path[]         = "/dev/ttyUSB0";
 static constexpr char grsim_address[]     = "127.0.0.1";
@@ -281,6 +283,7 @@ private:
 
     model::refbox refbox{};
     std::unique_ptr<game::captain::base> captain{};
+    std::unique_ptr<game::action::base> action{};    //m ***********************
 
     std::chrono::steady_clock::time_point prev_time{};
 
@@ -310,6 +313,7 @@ private:
           }
         }
 
+/*    //  wm20220621
         if (!captain || need_reset_) {
           captain = std::make_unique<game::captain::first>(
               ctx, refbox, std::set(active_robots_.cbegin(), active_robots_.cend()));
@@ -323,6 +327,22 @@ private:
           auto command = action->execute();
           driver_.update_command(action->id(), command);
         }
+*/
+// action only  wm 20220621
+        if (!action || need_reset_) {    // || OR
+       
+         //action      = std::make_unique<game::action::goal_keep>(ctx, 0);
+         //action      = std::make_unique<game::action::get_ball>(ctx, 1);
+         action      = std::make_unique<game::action::clear>(ctx, 0);
+
+          need_reset_ = false;
+          l_.info("action resetted");
+        }
+
+        auto command = action->execute();
+        driver_.update_command(action->id(), command);
+
+        // action only
 
         prev_time = current_time;
       } catch (const std::exception& e) {

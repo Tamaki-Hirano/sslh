@@ -1,0 +1,3 @@
+repository='external project URL'
+module='https://github.com/sony/nnabla/archive/v1.19.0.tar.gz'
+tag='SHA256=75e9b1934c66d564abdeba19f84d1c1ae46afa0b5e5db00fb8b392a46bb0f0f9'

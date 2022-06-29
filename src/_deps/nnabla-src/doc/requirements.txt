@@ -1,0 +1,8 @@
+nnabla==1.19.0
+sphinx-rtd-theme
+sphinxcontrib-actdiag
+sphinxcontrib-blockdiag
+sphinxcontrib-nwdiag
+sphinxcontrib-plantuml
+sphinxcontrib-seqdiag
+sphinxcontrib-toc

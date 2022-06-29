@@ -1,0 +1,13 @@
+Cython
+boto3
+h5py<=3.1.0
+imageio
+numpy==1.19.5
+pillow
+protobuf
+pyyaml
+requests
+requests
+scipy
+six
+tqdm
