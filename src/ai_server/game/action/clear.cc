@@ -70,7 +70,7 @@ namespace ai_server::game::action{
         util::math::inferior_angle(robot.theta(),
         util::math::direction(ball_pos)))
 */
-// hirano
+// hirano 2022
     #include <cmath>
 #include "clear.h"
 #include "ai_server/util/math/angle.h"
