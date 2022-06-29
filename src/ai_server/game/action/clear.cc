@@ -78,7 +78,7 @@ namespace ai_server::game::action{
 #include "ai_server/model/motion/turn_left.h"
 #include "ai_server/model/motion/turn_right.h"
 
-#include <iostream> //22,6,29追記
+#include <iostream> //22,6,29追記オメガ表示のため
 namespace ai_server::game::action {
 clear::clear(context& ctx, unsigned int id) : base(ctx, id) {}
 bool clear::finished() const {
@@ -108,6 +108,7 @@ command.set_motion(std::make_shared<model::motion::turn_left>());
 } else if (omega < -rot_th) {
 command.set_motion(std::make_shared<model::motion::turn_right>());
 }
+std::cout << "omega" <<  omega << "\n" ; // 22,6,29 omega表示
 return command;
 }
 } // namespace ai_server::game::action
