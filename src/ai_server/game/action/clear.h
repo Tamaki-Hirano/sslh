@@ -1,5 +1,27 @@
 
+#ifndef AI_SERVER_GAME_ACTION_CLEAR_H
+#define AI_SERVER_GAME_ACTION_CLEAR_H
 
+#include <Eigen/Core>
+#include "base.h"
+//#include <vector>
+//#include "ai_server/model/world.h"
+
+namespace ai_server::game::action{
+
+    class clear : public base {
+        public:
+        clear(context& ctx, unsigned int id);
+        model::command execute() override;
+        bool finished() const override;
+
+        
+    };
+}
+    #endif
+
+
+/*
 #ifndef AI_SERVER_GAME_ACTION_CLEAR_H
 #define AI_SERVER_GAME_ACTION_CLEAR_H
 
@@ -21,7 +43,7 @@ class clear : public base {
 
 }
 #endif
-
+*/
 /*
 #ifndef AI_SERVER_GAME_ACTION_CLEAR_H
 #define AI_SERVER_GAME_ACTION_CLEAR_H

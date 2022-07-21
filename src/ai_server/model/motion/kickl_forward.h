@@ -5,11 +5,11 @@
 
 namespace ai_server::model::motion {
 
- class kick_forward : public base 
+ class kickl_forward : public base 
  {
  
  public:
-  kick_forward(/* args */);
+  kickl_forward(/* args */);
  
  std::tuple<double,double,double> execute() override;
  
